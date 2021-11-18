@@ -1,17 +1,17 @@
-// import logo from './logo.svg';
-import './App.css';
-import NavBar from "./components/NavBar"
-import './components/NavBar.css';
-import ItemListContainer from './ItemListContainer';
+//CSS
+import "./App.css";
+import "./components/NavBar.css";
+import "./components/Item.css"
+//Components
+import NavBar from "./components/NavBar";
+import { ItemListContainer } from "./components/ItemListContainer";
 
-function App() {
+function App() { 
+
   return (
-    <div className="App" >
-
+    <div className="App">
       <NavBar />
-    
-      <ItemListContainer greeting=" Seccion de items a modificar"/>
-
+      <ItemListContainer />
 
     </div>
   );

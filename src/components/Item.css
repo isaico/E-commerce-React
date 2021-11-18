@@ -1,0 +1,28 @@
+#itemList{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5em;
+}
+.itemList__item{
+background-color: white;
+width: 300px;
+height: 500px;
+border-radius: 1em;
+}
+.itemList__item--head{
+    height: 300px;
+}
+.itemList__item--body{
+    background-color: #f0f0f0;
+    height:calc(200px - 2em);
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 0 0 1em 1em;
+    padding-top:2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
