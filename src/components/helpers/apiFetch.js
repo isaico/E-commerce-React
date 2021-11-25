@@ -6,6 +6,7 @@ const arrItems = [
       price: 100,
       stock: 1,
       pictureUrl: "https://vegg-burger.vercel.app/assets/burger-brocoli-300x300.png",
+      categoria:"veganas"
     },
     {
       id: 'berenjena-burger',
@@ -14,6 +15,7 @@ const arrItems = [
       price: 200,
       stock: 1,
       pictureUrl: "https://vegg-burger.vercel.app/assets/burger-berenjena-300x300.png",
+      categoria:"veganas"
     },
     {
       id: 'calabaza-burger',
@@ -22,6 +24,7 @@ const arrItems = [
       price: 60,
       stock: 1,
       pictureUrl: "https://vegg-burger.vercel.app/assets/burger-calabaza-300x300.png",
+      categoria:"vegetarianas"
     },
     {
       id: 'espinaca-burger',
@@ -30,6 +33,7 @@ const arrItems = [
       price: 70,
       stock: 1,
       pictureUrl: "https://vegg-burger.vercel.app/assets/burger-espinaca-300x300.png",
+      categoria:"veganas"
     },
   ];
 
@@ -47,3 +51,12 @@ export const apiFetch = new Promise ((resolve, reject) => {
     },2000)
     
   })
+
+  export const getItem = new Promise ((resolve, reject) => {
+    setTimeout(()=>{
+      resolve(arrItems[0])
+       
+    },2000)
+    
+  })
+  export default apiFetch

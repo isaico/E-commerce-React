@@ -12,6 +12,6 @@ export const ItemList = (props) => {
         //     <p>{item.description}</p>
         //     <p>{item.price}</p>
         // </div>
-    <Item itemProps={item}></Item>
+    <Item key={item.id}itemProps={item}></Item>
   )
 )}

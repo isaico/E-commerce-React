@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import  Anchor  from "./Anchor"
 import { Brand } from "./Brand"
 import "./NavBar.css"
@@ -8,14 +9,22 @@ const NavBar = () => {
     return (
         
         <nav className="navBar">
-            <Brand name="Vegg-Burger " />
+            <Link to="/">
+                <Brand name="Vegg-Burger" />
+            </Link>
             <div >
-                <Anchor link="#" name="Home"/>
-                <Anchor link="#" name="Shop"/>
+                <Link to="/categoria/veganas">
+                    <Anchor link="#" name="veganas"/>
+                </Link>
+                <Link to="/categoria/vegetarianas"> 
+                    <Anchor link="#" name="vegetarianas"/>
+                </Link>
                 <Anchor link="#" name="About"/>
                 <Anchor link="#" name="Contact"/>
             </div>
-            <CartWidget />
+            <Link to="/carrito">
+                <CartWidget />
+            </Link>
         </nav>
     )
 }
