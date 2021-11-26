@@ -14,47 +14,47 @@ export const ItemListContainer = () => {
   //fetch
   useEffect(() => {
 
-    if (urlCategoria) {
-      apiFetch
-      .then((data) => {
-        setItems(data.filter( item=> item.categoria === urlCategoria ))
-        console.log(data)
-      })
-      .catch( err =>  console.log(err) )
-      .finally(() => { 
-      console.log("Finalizada la carga de Api")
-      setLoading(false)
-    });
-    } else {
-      apiFetch
-      .then((data) => {
-        setItems(data)
-        console.log(data)
-      })
-      .catch( err =>  console.log(err) )
-      .finally(() => { 
-      console.log("Finalizada la carga de Api")
-      setLoading(false)
-    });
-    }
-    // apiFetch
-    //   .then((data) => {
-    //     setItems(data)
-    //     console.log(data)
-    //   })
-    //   .catch( err =>  console.log(err) )
-    //   .finally(() => { 
-    //   console.log("Finalizada la carga de Api")
-    //   setLoading(false)
-    // });
-    return () => console.log("clean")
+	if (urlCategoria) {
+	  apiFetch
+	  .then((data) => {
+		setItems(data.filter( item=> item.categoria === urlCategoria ))
+		console.log(data)
+	  })
+	  .catch( err =>  console.log(err) )
+	  .finally(() => { 
+	  console.log("Finalizada la carga de Api")
+	  setLoading(false)
+	});
+	} else {
+	  apiFetch
+	  .then((data) => {
+		setItems(data)
+		console.log(data)
+	  })
+	  .catch( err =>  console.log(err) )
+	  .finally(() => { 
+	  console.log("Finalizada la carga de Api")
+	  setLoading(false)
+	});
+	}
+	// apiFetch
+	//   .then((data) => {
+	//     setItems(data)
+	//     console.log(data)
+	//   })
+	//   .catch( err =>  console.log(err) )
+	//   .finally(() => { 
+	//   console.log("Finalizada la carga de Api")
+	//   setLoading(false)
+	// });
+	return () => console.log("clean")
   },[urlCategoria]);
   console.log(urlCategoria)
-    return (
-        
-       <div  id="itemList">
-         {loading ? <h2>cargando...</h2> :  <ItemList items={items} />}
-       </div>
-       
-    )
+	return (
+		
+	   <div  id="itemList">
+		 {loading ? <h2>cargando...</h2> :  <ItemList items={items} />}
+	   </div>
+	   
+	)
 }

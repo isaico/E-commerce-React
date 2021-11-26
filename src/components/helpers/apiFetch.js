@@ -54,7 +54,7 @@ export const apiFetch = new Promise ((resolve, reject) => {
 
   export const getItem = new Promise ((resolve, reject) => {
     setTimeout(()=>{
-      resolve(arrItems[0])
+      resolve(arrItems)
        
     },2000)
     

@@ -13,7 +13,7 @@ export const Item = ({itemProps}) => {
       </div>
       <div className="itemList__item--body">
         <h3 className="itemList__item--title">{itemProps.title}</h3>
-        <Link to="/detalle">
+        <Link to={`detalle/${itemProps.id}`}>
           <button className="itemList__item--buttonDetail">Ver mas detalles</button>
 
         </Link>
