@@ -50,6 +50,7 @@ export const ItemListContainer = () => {
 	return () => console.log("clean")
   },[urlCategoria]);
   console.log(urlCategoria)
+  
 	return (
 		
 	   <div  id="itemList">

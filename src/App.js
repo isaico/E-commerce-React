@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { CartContextProvider } from "./context/CartContext/CartContext";
+import  CartContextProvider from "./context/CartContext/CartContext"
 //CSS
 import "./App.css";
 import "./components/NavBar.css";
@@ -11,18 +13,20 @@ import { Cart } from "./components/Cart/Cart";
 
 function App() {
   return (
+    <CartContextProvider>
     <BrowserRouter>
-      <div className="App">
-        <NavBar />
-        <Routes>
-          <Route exact path="/" element={<ItemListContainer />} />
-          <Route exact path="/categoria/:urlCategoria" element={<ItemListContainer />} />
-          <Route exact path="/detalle/:urlDetalleItem" element={<ItemDetailContainer />} />
-          <Route exact path="/categoria/:urlCategoria/detalle/:urlDetalleItem" element={<ItemDetailContainer />} />
-          <Route exact path="/carrito" element={<Cart />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+        <div className="App">
+          <NavBar />
+          <Routes>
+            <Route exact path="/" element={<ItemListContainer />} />
+            <Route exact path="/categoria/:urlCategoria" element={<ItemListContainer />} />
+            <Route exact path="/detalle/:urlDetalleItem" element={<ItemDetailContainer />} />
+            <Route exact path="/categoria/:urlCategoria/detalle/:urlDetalleItem" element={<ItemDetailContainer />} />
+            <Route exact path="/carrito" element={<Cart />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </CartContextProvider>
   );
 }
 

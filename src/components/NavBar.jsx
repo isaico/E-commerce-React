@@ -14,13 +14,14 @@ const NavBar = () => {
             </Link>
             <div >
                 <Link to="/categoria/veganas">
+                    
                     <Anchor link="#" name="veganas"/>
                 </Link>
                 <Link to="/categoria/vegetarianas"> 
                     <Anchor link="#" name="vegetarianas"/>
                 </Link>
-                <Anchor link="#" name="About"/>
-                <Anchor link="#" name="Contact"/>
+                {/* <Anchor link="#" name="About"/>
+                <Anchor link="#" name="Contact"/> */}
             </div>
             <Link to="/carrito">
                 <CartWidget />
