@@ -12,7 +12,7 @@ export const ActivateCartContext =()=> useContext(CartContext)
     const [cartList, setCartList]=useState([])
     const [cartEmpty,setCartEmpty]=useState(true)
 
-    //funciones del carrito
+    //funciones del carrito  === === ===
 
     const addProduct = (prod)=>{
 

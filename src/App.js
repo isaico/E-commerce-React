@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar";
 import { ItemListContainer } from "./components/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { Cart } from "./components/Cart/Cart";
+import { ComponenteVacio } from "./components/ComponenteVacio";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/detalle/:urlDetalleItem" element={<ItemDetailContainer />} />
             <Route exact path="/categoria/:urlCategoria/detalle/:urlDetalleItem" element={<ItemDetailContainer />} />
             <Route exact path="/carrito" element={<Cart />} />
+            <Route exact path="/cart" element={<ComponenteVacio />} />
           </Routes>
         </div>
       </BrowserRouter>

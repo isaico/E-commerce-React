@@ -39,6 +39,7 @@ export const ItemDetailContainer = () => {
 	  return () => console.log("clean");
 	}
   }, [urlDetalleItem]);
+  console.log(urlDetalleItem)
  
   return (
 	<div id="itemDetails">
