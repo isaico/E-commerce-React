@@ -31,18 +31,12 @@ export const ItemDetail = ({item}) => {
                 count === 0 ? 
                 <ItemCount onAdd={onAdd} defaultValue={1}/>
                 : 
-                <Link to="/cart">
+                <Link to="/carrito">
                 
                     <button  >
                         Terminar Compra
                     </button> 
                 </Link>
-                // <Link to="/carrito">
-                
-                //     <button  >
-                //         Terminar Compra
-                //     </button> 
-                // </Link>
 
             }
                   
