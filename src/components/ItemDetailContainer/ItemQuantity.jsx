@@ -1,18 +1,21 @@
 import React from 'react'
 
-export const ItemQuantity = ({functionSetValue,opciones,defaultValue=1}) => {
-    return (
-        <select 
-        type="select"
-        onChange={(evt)=>functionSetValue(evt.target)}
-        >
-            {
-                opciones.map((opcion)=>
-                    
-                    <option key={opcion}value={opcion}>{opcion}</option>
-                )
-                
-            }
-        </select>
-    )
+export const ItemQuantity = ({onSelect,opciones}) => {
+    console.log(opciones)
+    // console.log(funcionSetValue(opciones[0]))
+
+    return opciones.map((op)=> (
+        <>
+            <input 
+                onChange={()=>{
+                    onSelect(op.value)}
+                }
+                type="radio"
+                name="cantidades"
+                id={op.value}
+            />
+            
+            <label for={op.value}>{op.text}</label>
+        </>
+    ))
 }

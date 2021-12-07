@@ -18,6 +18,7 @@ export const ItemDetail = ({item}) => {
     //funciones 
     function onAdd(cant){
         setCount(cant)
+        console.log(cant)
         addProduct({producto:item, cantidad: cant})  
     }
     console.log(cartList)
@@ -29,7 +30,7 @@ export const ItemDetail = ({item}) => {
             <p>{item.description}</p>
             {
                 count === 0 ? 
-                <ItemCount onAdd={onAdd} defaultValue={1}/>
+                <ItemCount onAdd={onAdd} />
                 : 
                 <Link to="/carrito">
                 

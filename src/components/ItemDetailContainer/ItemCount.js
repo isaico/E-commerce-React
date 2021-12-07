@@ -1,23 +1,32 @@
 import React from 'react';
-// import { useState } from 'react';
-// import { ItemQuantity } from './ItemQuantity';
+import { useState } from 'react';
+import { ItemQuantity } from './ItemQuantity';
 
-// const options =[1,2,3,4,5,6]
+const options =[
+  {
+    value:1,
+    text: "1  unidad"
+  },
+  {
+    value:2,
+    text: "2 unidades"
+  }
+]
 
-export  const ItemCount = ({onAdd,defaultValue}) => {
 
+export  const ItemCount = ({onAdd}) => {
     //Hook
-    // const [value,setValue]=useState(1)
+    const [value,setValue]=useState(1)
+    console.log(value)
     
-    // const funcionSetValue = (value)=>{
-    // setValue(value)
-    //   console.log(value)
-    // }
+    const funcionSetValue = (valor)=>{
+      setValue(valor)
+    }
   return (
     <div>
-       
-        {/* <ItemQuantity opciones={options} onSelect={funcionSetValue} defaultValue={value}/> */}
-        <button onClick={()=>onAdd(defaultValue)} >Agregar al Carrito</button>
+
+        <ItemQuantity  opciones={options} onSelect={funcionSetValue}  />
+        <button onClick={()=>onAdd(value)} >Agregar al Carrito</button>
     </div>
   );
 }
