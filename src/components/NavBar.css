@@ -6,3 +6,13 @@
     align-items: center;
     justify-content: space-evenly;
 }
+.navBar > div{
+    display: flex;
+    flex-direction: column;
+}
+.link-container{
+    display: flex;
+}
+.link-container > *{
+    margin: 0.5rem 1rem;
+}

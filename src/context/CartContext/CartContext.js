@@ -11,14 +11,22 @@ export const ActivateCartContext =()=> useContext(CartContext)
     //Hook de Context
     const [cartList, setCartList]=useState([])
     const [cartEmpty,setCartEmpty]=useState(true)
+    // const [cartElements, setCartElements]=useState(0)
 
     //funciones del carrito  === === ===
-
+    const contarElementosDelCart = ()=>{
+        let cantidadesProducto= 0
+        cartList.forEach((e)=>{
+            
+            cantidadesProducto+=e.cantidad
+        })
+        return cantidadesProducto
+    }
     const addProduct = (prod)=>{
 
         //si el carrito tiene elementos
         if(cartList.length>0){
-            console.log("tengo mas de 1 item")
+            console.log("tengo algun item")
 
             cartList.forEach(element => {
                 
@@ -62,6 +70,7 @@ export const ActivateCartContext =()=> useContext(CartContext)
             addProduct,
             removeAllProducts,
             removeProduct,
+            contarElementosDelCart,
             cartEmpty
         }}>
             {children}

@@ -1,15 +1,22 @@
 import React from "react";
 import { ActivateCartContext } from "../../context/CartContext/CartContext";
-
+import { Link } from "react-router-dom";
 export const Cart = () => {
+  //uso del Context del carrito
   const { cartList, removeAllProducts, removeProduct,cartEmpty } = ActivateCartContext();
   console.log(cartList)
-
+  //===
   return (
     <div id="cart">
       {
 	  cartEmpty ? 
-        <h2>Carrito Vacio</h2>
+        
+         <div>
+            <h2>Carrito Vacio</h2>
+          <Link to="/">
+            <button>Descrubrir productos</button>
+          </Link>
+         </div>
        :  
         cartList.map((prod) => (
           <div key={prod.producto.id} id={prod.producto.id}>

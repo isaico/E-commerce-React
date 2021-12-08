@@ -10,7 +10,7 @@ export const ItemDetail = ({item}) => {
     //uso del Context
     const {
         
-        cartList,
+        // cartList,
         addProduct,
       
     }=ActivateCartContext()
@@ -18,11 +18,10 @@ export const ItemDetail = ({item}) => {
     //funciones 
     function onAdd(cant){
         setCount(cant)
-        console.log(cant)
+        
         addProduct({producto:item, cantidad: cant})  
     }
-    console.log(cartList)
-    console.log(count)
+    
     return (
         <div>
             <h2>{item.title}</h2>

@@ -18,7 +18,7 @@ export const ItemListContainer = () => {
 	  apiFetch
 	  .then((data) => {
 		setItems(data.filter( item=> item.categoria === urlCategoria ))
-		console.log(data)
+		
 	  })
 	  .catch( err =>  console.log(err) )
 	  .finally(() => { 
@@ -29,7 +29,7 @@ export const ItemListContainer = () => {
 	  apiFetch
 	  .then((data) => {
 		setItems(data)
-		console.log(data)
+		
 	  })
 	  .catch( err =>  console.log(err) )
 	  .finally(() => { 
@@ -49,7 +49,7 @@ export const ItemListContainer = () => {
 	// });
 	return () => console.log("clean")
   },[urlCategoria]);
-  console.log(urlCategoria)
+  
   
 	return (
 		

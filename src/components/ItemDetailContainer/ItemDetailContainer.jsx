@@ -21,7 +21,7 @@ export const ItemDetailContainer = () => {
 	  })
 	  .catch((err) => console.log(err))
 	  .finally(() => {
-		console.log("Detalles del produco cargados");
+		console.log("Detalles del producto cargados");
 		setLoading(false);
 	  });
 
@@ -39,10 +39,10 @@ export const ItemDetailContainer = () => {
 	  return () => console.log("clean");
 	}
   }, [urlDetalleItem]);
-//   console.log(urlDetalleItem)
+
  
   return (
 	<div id="itemDetails">
-	   {loading ? <h2>cargando...</h2> : <ItemDetail item={itemDetail}/>}
+	   {loading ? <h2>cargando...</h2> : <ItemDetail key={urlDetalleItem} item={itemDetail}/>}
 	</div>
 )};
