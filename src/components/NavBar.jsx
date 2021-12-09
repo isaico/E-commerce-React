@@ -10,14 +10,11 @@ import { useState } from "react";
 const NavBar = () => {
 
     //uso del Context del carrito
-    const { cartList, contarElementosDelCart } = ActivateCartContext()
-    const [cartCounter, setCartCounter] = useState(0)
-    // setCartCounter(CantidadDeProductos)
-   
+    const { cartList,contarElementosDelCart } = ActivateCartContext()
+ 
     console.log("ahora llamando al context")
-    let aux=contarElementosDelCart()
-    console.log(aux)
-    // setCartCounter(aux)
+    let valorDelContador =contarElementosDelCart()
+  
     return (
         
         <nav className="navBar">
@@ -39,10 +36,13 @@ const NavBar = () => {
                 {/* <Anchor link="#" name="About"/>
                 <Anchor link="#" name="Contact"/> */}
             </div>
+            { cartList.lenght === 0 ? " " :
             <Link to="/carrito">
                 <CartWidget />
             </Link>
-            <span>{aux}</span>
+            }
+                
+            <span>{valorDelContador}</span>
         </nav>
     )
 }
