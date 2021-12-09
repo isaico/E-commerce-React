@@ -1,80 +1,77 @@
-
-import { createContext,useState,useContext } from "react";
+import { createContext, useState, useContext } from "react";
 
 //crea el contexto global del carrito
-const CartContext = createContext([])
+const CartContext = createContext([]);
 
-//funcion para usar el contexto 
-export const ActivateCartContext =()=> useContext(CartContext)
+//funcion para usar el contexto
+export const ActivateCartContext = () => useContext(CartContext);
 
- function CartContextProvider({children}){
-    //Hook de Context
-    const [cartList, setCartList]=useState([])
-    const [cartEmpty,setCartEmpty]=useState(true)
-    // const [cartElements, setCartElements]=useState(0)
+function CartContextProvider({ children }) {
+  //Hook de Context
+  const [cartList, setCartList] = useState([]);
+  const [cartEmpty, setCartEmpty] = useState(true);
+ 
 
-    //funciones del carrito  === === ===
-    const contarElementosDelCart = ()=>{
-        let cantidadesProducto= 0
-        cartList.forEach((e)=>{
-            
-            cantidadesProducto+=e.cantidad
-        })
-        return cantidadesProducto
-    }
-    const addProduct = (prod)=>{
+  //funciones del carrito  === === ===
+  //contador del carrito con su retorno
+  const contarElementosDelCart = () => {
+    let cantidadesProducto = 0;
+    cartList.forEach((e) => {
+      cantidadesProducto += e.cantidad;
+    });
+    return cantidadesProducto;
+  };
+  //añade productos al carrito
+  const addProduct = (prod) => {
+    //si el carrito tiene elementos
+    if (cartList.length > 0) {
+      console.log("tengo algun item");
 
-        //si el carrito tiene elementos
-        if(cartList.length>0){
-            console.log("tengo algun item")
-
-            cartList.forEach(element => {
-                
-                // si esta duplicado No lo permite ingresar
-                if(element.producto.id.includes(prod.producto.id) ){
-                    
-                    setCartList([...cartList])
-                    setCartEmpty(false)
-                }else{
-                    
-                    setCartList([...cartList,prod])
-                    setCartEmpty(false)
-                }
-            });
-        }else{
-            
-            setCartList([...cartList,prod])
-            setCartEmpty(false)
+      cartList.forEach((element) => {
+        // si esta duplicado No lo permite ingresar
+        if (element.producto.id.includes(prod.producto.id)) {
+          setCartList([...cartList]);
+          setCartEmpty(false);
+        } else {
+          setCartList([...cartList, prod]);
+          setCartEmpty(false);
         }
+      });
+    } else {
+      setCartList([...cartList, prod]);
+      setCartEmpty(false);
     }
-    //elimina individualmente los productos del cart
-    const removeProduct = (prodId)=>{
-        const filteredCart = cartList.filter( element => element.producto.id !== prodId)
-        setCartList(filteredCart)
-        if(filteredCart.length===0){
+  };
+  //elimina individualmente los productos del cart
+  const removeProduct = (prodId) => {
+    const filteredCart = cartList.filter(
+      (element) => element.producto.id !== prodId
+    );
+    setCartList(filteredCart);
+    if (filteredCart.length === 0) {
+      setCartEmpty(true);
+    }
+  };
+  //elimina todos los productos
+  const removeAllProducts = () => {
+    setCartList([]);
+    setCartEmpty(true);
+  };
 
-            setCartEmpty(true)
-        }
-        
-    }  
-    //elimina todos los productos
-    const removeAllProducts = ()=>{
-        setCartList([])
-        setCartEmpty(true)
-    }
-    
-    // === === ===
-    return(
-        <CartContext.Provider value={{
-            cartList,
-            addProduct,
-            removeAllProducts,
-            removeProduct,
-            contarElementosDelCart,
-            cartEmpty
-        }}>
-            {children}
-        </CartContext.Provider>
-    )
+  // === === ===
+  return (
+    <CartContext.Provider
+      value={{
+        cartList,
+        addProduct,
+        removeAllProducts,
+        removeProduct,
+        contarElementosDelCart,
+        cartEmpty,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
 }
-export default CartContextProvider
+export default CartContextProvider;

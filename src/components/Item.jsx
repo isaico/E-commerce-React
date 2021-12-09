@@ -13,11 +13,11 @@ export const Item = ({itemProps}) => {
       </div>
       <div className="itemList__item--body">
         <h3 className="itemList__item--title">{itemProps.title}</h3>
-        <Link to={`detalle/${itemProps.id}`}>
-          <button className="itemList__item--buttonDetail">Ver mas detalles</button>
-
+        <p className="itemList__item--price">${itemProps.price}</p>
+        <h3 className="itemList__item--category">categoria: {itemProps.categoria}</h3>
+        <Link to={`detalle/${itemProps.id}`} className="itemList__item--buttonAnchor">
+          <h3 className="itemList__item--buttonDetail">Ver mas detalles</h3>
         </Link>
-        <p className="itemList__item--price">{itemProps.price}</p>
       </div>
     </div>
   );

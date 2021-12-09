@@ -1,5 +1,6 @@
 // import React from 'react'
-import "./Brand.css"
+
+import logo from '../assets/vegg-logo.png'
 export const Brand = (prop) => {
-    return <h1 className="nav__title"> {prop.name}</h1>  
+    return <img className='navBar__logo' src={logo} alt="logo de la marca" /> 
 }

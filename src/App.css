@@ -6,7 +6,7 @@ h1,h2,h3,p{
 }
 .App {
   min-height: 100vh;
-  
+  font-family: poppins,sans-serif;
   text-align: center;
   background-color: #f0f0f0;
 }
