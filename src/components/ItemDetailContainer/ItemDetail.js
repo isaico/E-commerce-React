@@ -18,7 +18,6 @@ export const ItemDetail = ({item}) => {
     //funciones 
     function onAdd(cant){
         setCount(cant)
-        
         addProduct({producto:item, cantidad: cant})  
     }
     

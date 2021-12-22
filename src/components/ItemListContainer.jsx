@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { apiFetch } from "./helpers/apiFetch";
 import { ItemList } from "./ItemList";
 //importo base de datos
 import { getFirestore } from "../firebase/firebase";
