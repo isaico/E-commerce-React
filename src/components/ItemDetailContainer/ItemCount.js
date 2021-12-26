@@ -13,18 +13,13 @@ const options =[
   }
 ]
 
-
 export  const ItemCount = ({onAdd}) => {
-    //Hook
     const [value,setValue]=useState(1)
-    console.log(value)
-    
     const funcionSetValue = (valor)=>{
       setValue(valor)
     }
   return (
     <div>
-
         <ItemQuantity  opciones={options} onSelect={funcionSetValue}  />
         <button onClick={()=>onAdd(value)} >Agregar al Carrito</button>
     </div>

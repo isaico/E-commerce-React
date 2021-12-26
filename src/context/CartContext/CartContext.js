@@ -57,7 +57,14 @@ function CartContextProvider({ children }) {
     setCartList([]);
     setCartEmpty(true);
   };
-
+  const totalPrice=()=>{
+    let total = 0
+    cartList.forEach( item =>{
+      total+=item.producto.price*item.cantidad
+    })
+    console.log(total)
+    return total
+  }
   // === === ===
   return (
     <CartContext.Provider
@@ -68,6 +75,7 @@ function CartContextProvider({ children }) {
         removeProduct,
         contarElementosDelCart,
         cartEmpty,
+        totalPrice
       }}
     >
       {children}
