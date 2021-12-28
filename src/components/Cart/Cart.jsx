@@ -58,8 +58,7 @@ export const Cart = () => {
       })
   
       order.date=firebase.firestore.Timestamp.fromDate(new Date())
-      console.log(order)
-  
+
       const db= getFirestore()
       db.collection("orders").add(order)
       .then(resp=>setIdOrder(resp.id))
@@ -70,7 +69,6 @@ export const Cart = () => {
   //uso del Context del carrito
   const { cartList, removeAllProducts, removeProduct, cartEmpty ,totalPrice } =
     ActivateCartContext();
-  console.log(cartList);
   //===
 
   return (

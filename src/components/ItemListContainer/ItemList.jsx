@@ -3,7 +3,7 @@ import { Item } from "./Item";
 
 
 export const ItemList = (props) => {
-  console.log(props.items)
+ 
   return(
     props.items.map( item => 
        

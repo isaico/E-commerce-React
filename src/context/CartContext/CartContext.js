@@ -25,8 +25,6 @@ function CartContextProvider({ children }) {
   const addProduct = (prod) => {
     //si el carrito tiene elementos
     if (cartList.length > 0) {
-      console.log("tengo algun item");
-
       cartList.forEach((element) => {
         // si esta duplicado No lo permite ingresar
         if (element.producto.id.includes(prod.producto.id)) {
@@ -62,7 +60,6 @@ function CartContextProvider({ children }) {
     cartList.forEach( item =>{
       total+=item.producto.price*item.cantidad
     })
-    console.log(total)
     return total
   }
   // === === ===

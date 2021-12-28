@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 // import  Anchor  from "./Anchor" puede servir para poner links en el futuro
 import { Brand } from "./Brand"
-import "./NavBar.css"
-import { ActivateCartContext } from "../context/CartContext/CartContext";
+import { ActivateCartContext } from "../../context/CartContext/CartContext"
 import { CartWidget } from "./CartWidget"
+import "./NavBar.css"
 
 
 
@@ -39,12 +39,20 @@ const NavBar = () => {
             <div  className="navBar__cart-container">
                 { valorDelContador ?  
                 <Link to="/carrito">
-                    <CartWidget/>
+                    <div > 
+                        <CartWidget/>
+                        <span className="navBar__cart-number">{valorDelContador}</span>
+                    </div>
                 </Link>
-                : " "
+                : 
+                <Link to="/carrito">
+                    <div className="cart-opacity"> 
+                        <CartWidget/>
+                        <span className="navBar__cart-number">{valorDelContador}</span>
+                    </div>
+                </Link>
                 }
                     
-                <span className="navBar__cart-number">{valorDelContador}</span>
             </div>
         </nav>
     )

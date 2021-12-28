@@ -1,0 +1,29 @@
+.loader-container {
+    position: absolute;
+    background: #f1f1f1;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out;
+  }
+  .dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgb(243, 189, 40);
+    margin: 0 10px;
+    animation: loader infinite 0.3s alternate;
+  }
+  .d2 {
+    animation-delay: 0.05s;
+  }
+  .d3 {
+    animation-delay: 0.1s;
+  }
+  @keyframes loader {
+    100% {
+      transform: translateY(-30px);
+    }
+  }

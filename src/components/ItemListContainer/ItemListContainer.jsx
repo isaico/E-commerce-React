@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ItemList } from "./ItemList";
 //importo base de datos
-import { getFirestore } from "../firebase/firebase";
+import { getFirestore } from "../../firebase/firebase";
+import { Loader } from "../Loader/Loader";
 
 export const ItemListContainer = () => {
   //Hook
@@ -50,7 +51,7 @@ export const ItemListContainer = () => {
     
   return (
     <div id="itemList">
-      {loading ? <h2>cargando...</h2> : <ItemList items={items} />}
+      {loading ? <Loader /> : <ItemList items={items} />}
     </div>
   );
 };
