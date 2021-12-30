@@ -21,10 +21,13 @@ function validateEmail(){
     return "invalid"
   }
 }
-function validateInput(value){
+function validateInput(value,id){
+  const input=document.getElementById(`${id}`)
   if(value !== ""){
+    input.className="valid"
     return value
   }else{
+    input.className="invalid"
     return "invalid"
   }
 }
@@ -35,34 +38,37 @@ export const Cart = () => {
   //funcion de orden de compra
   const generateOrder = (e) => {
     e.preventDefault();
-    
+    console.log(e.target.nombre.id)
     const order= {}
     const buyer ={
-      nombre:validateInput(e.target.nombre.value),
-      apellido:validateInput(e.target.apellido.value),
-      telefono:validateInput(e.target.telefono.value),
+      nombre:validateInput(e.target.nombre.value,e.target.nombre.id),
+      apellido:validateInput(e.target.apellido.value,e.target.apellido.id),
+      telefono:validateInput(e.target.telefono.value,e.target.telefono.id),
       email:validateEmail()
     }
     //condicion para generar orden de compra
-    if(buyer.email!=="invalid" && buyer.email!==" "){
-
-      order.buyer= buyer
-      order.total = totalPrice()
-      order.items= cartList.map(item=>{
-        const nombre = item.producto.title
-        const id = item.producto.id
-        const cantidad=item.cantidad
-        const precio = item.producto.price  * cantidad
+    if(buyer.email!=="invalid" && buyer.email!==""){
+      if(buyer.nombre !=="invalid" && buyer.nombre !== ""){
+        if(buyer.apellido !=="invalid" && buyer.apellido !== ""){
+        order.buyer= buyer
+        order.total = totalPrice()
+        order.items= cartList.map(item=>{
+          const nombre = item.producto.title
+          const id = item.producto.id
+          const cantidad=item.cantidad
+          const precio = item.producto.price  * cantidad
+    
+          return {nombre,precio,id,cantidad}
+        })
+    
+        order.date=firebase.firestore.Timestamp.fromDate(new Date())
   
-        return {nombre,precio,id,cantidad}
-      })
-  
-      order.date=firebase.firestore.Timestamp.fromDate(new Date())
-
-      const db= getFirestore()
-      db.collection("orders").add(order)
-      .then(resp=>setIdOrder(resp.id))
-      .catch(err=> console.log(err))
+        const db= getFirestore()
+        db.collection("orders").add(order)
+        .then(resp=>setIdOrder(resp.id))
+        .catch(err=> console.log(err))
+        }
+      }
     }
   }
 
@@ -118,9 +124,9 @@ export const Cart = () => {
             </div>
             <div className="form">
                 <form onSubmit={generateOrder}>  
-                  <input name="nombre" type="text" placeholder="Nombre"/>
-                  <input name="apellido" type="text" placeholder="Apellido" />
-                  <input name="telefono" type="tel" placeholder="Telefono" />
+                  <input id="nombre" name="nombre" type="text" placeholder="Nombre"/>
+                  <input id="apellido" name="apellido" type="text" placeholder="Apellido" />
+                  <input id="telefono" name="telefono" type="tel" placeholder="Telefono" />
                   <input id="email" name="email" type="email" placeholder="E-Mail"/>
                   <input id="confEmail" name="confirmacion" type="email" placeholder="confirmar E-Mail"/>
                   

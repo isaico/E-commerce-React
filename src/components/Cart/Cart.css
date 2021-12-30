@@ -139,9 +139,7 @@ form > input {
     border: none;
     box-shadow: 1px 1px 6px rgba(83, 83, 83, 0.493);
 }
-.form-button:hover{
 
-}
 .cart-reset-btn{
     background-color: #ebebeb;
     margin-left: .5rem;
