@@ -1,9 +1,21 @@
-# Vegg-Burgers E-Commerce // primera entrega del proyeto final
-El proyecto sigue las guias y peticiones de los desafios, la estetica luego cambiara para adaptarse a algo mas orientado a su estilo, es un e-commerce de hamburguesas vegetarianas claramente y con el enfoque a algo simple pero funcional y un estilo clean! 
-# API y Data
-al no tener una API disponible con la simulo con el promise y un array de objetos 
-# Loader
-luego remplazare el load con un componente personalizado 
-# Detalles del producto
-el layout de esa seccion/elemento lo desarollare mas a profundidad
-con un boton que pueda devolverme a donde estaba previamente
+# Vegg-Burgers E-Commerce 
+_El proyecto sigue las guias y peticiones de los desafios, es un e-commerce de hamburguesas vegetarianas claramente y con el enfoque a algo simple pero funcional y un estilo clean!_
+# Descripcion
+- Es un proyecto creado en React js
+- Podes seguir el siguiente link para explorar el sitio
+- https://e-commerce-react-two.vercel.app
+
+## Dependencias
+"react": "^17.0.2"
+"react-dom": "^17.0.2"
+"react-router-dom": "^6.0.2"
+"firebase": "^9.6.1"
+## API y Data
+La api es proveniente de Firestore (google) con una coleccion de los items y otra collecion de las ordenes de compra 
+## Opinion Personal
+Es un sitio familiar de produccion de comidas vegetarianas/veganas 
+
+## Informacion Personal
+- [https://www.linkedin.com/in/isaias-garcia-187061209/] - Linkedin
+
+
