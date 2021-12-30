@@ -23,7 +23,6 @@ const options =[
   }
 ]
 
-
 export  const ItemCount = ({onAdd,item}) => {
     //Hook
     const [value,setValue]=useState(1)

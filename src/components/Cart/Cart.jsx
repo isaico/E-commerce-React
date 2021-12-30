@@ -73,11 +73,12 @@ export const Cart = () => {
 
   return (
     <div id="cart">
+      
       {cartEmpty ? (
-        <div>
-          <h2>Carrito Vacio</h2>
-          <Link to="/">
-            <button>Descrubrir productos</button>
+        <div className="cart-empty">
+          <h2>Carrito Vacio!!</h2>
+          <Link to="/" className="cart-link-home">
+            <h4 className="cart-btn-hidden" >Descrubrir productos</h4>
           </Link>
         </div>
       ) : (
@@ -89,34 +90,48 @@ export const Cart = () => {
           </>
           : " "
           }
-          <h4>Eliminar productos del Carrito:</h4>
-          <button onClick={removeAllProducts}>Eliminar Todos!</button>
-          {cartList.map((prod) => (
-            <div key={prod.producto.id} id={prod.producto.id}>
-              <h2>{prod.producto.title}</h2>
-              <img src={prod.producto.pictureUrl} alt="paquete del producto" />
-              <h3>{`cantidades: ${prod.cantidad}`}</h3>
-              <h3>{`precio por unidad: $${prod.producto.price}`}</h3>
-              <h3>{`precio total: $${prod.producto.price * prod.cantidad}`}</h3>
-              <button onClick={() => removeProduct(prod.producto.id)}>
-                {" "}
-                eliminar producto
-              </button>
+          
+           <h3 className="cart-totalPrice">Precio total de la compra: {`$${totalPrice()}`}</h3>
+           <div className="cart-options">
+              <h4 >Opciones del Carrito:</h4>
+              <h4  className="cart-button-delete cart-opt-button" onClick={removeAllProducts}>Eliminar Todos!
+              </h4>
+             <Link className="cart-link-home" to="/">
+                <h4 className="cart-button-delete cart-opt-button cart-btn-home" >seguir Comprando</h4>
+            </Link>
+           </div>
+          <div className="cart-main">
+            <div className="cart-products-container">
+              {cartList.map((prod) => (
+                <div key={prod.producto.id} id={prod.producto.id} className="cart-product">
+                  <h2 className="cart-product-title">{prod.producto.title}</h2>
+                  <img src={prod.producto.pictureUrl} alt="paquete del producto" />
+                  <h3 className="cart-product-desc">{`Cantidad : ${prod.cantidad}`}</h3>
+                  <h3 className="cart-product-desc">{`Precio unitario : $${prod.producto.price}`}</h3>
+                  <h3 className="cart-product-desc">{`Precio total : $${prod.producto.price * prod.cantidad}`}</h3>
+                  <h3 className="cart-button-delete" onClick={() => removeProduct(prod.producto.id)}>
+                    {" "}
+                    Eliminar producto
+                  </h3>
+                </div>
+              ))}
             </div>
-          ))}
-          <h3>Precio total de la compra: {`$${totalPrice()}`}</h3>
-          <div className="form">
-              <form onSubmit={generateOrder}>
-                
-                <input name="nombre" type="text" placeholder="Nombre"/>
-                <input name="apellido" type="text" placeholder="Apellido" />
-                <input name="telefono" type="tel" placeholder="Telefono" />
-                <input id="email" name="email" type="email" placeholder="E-Mail"/>
-                <input id="confEmail" name="confirmacion" type="email" placeholder="confirmar E-Mail"/>
-                <button type="submit">Generar orden de compra</button>
-                <button type="reset" >reiniciar</button>
-              </form>
+            <div className="form">
+                <form onSubmit={generateOrder}>  
+                  <input name="nombre" type="text" placeholder="Nombre"/>
+                  <input name="apellido" type="text" placeholder="Apellido" />
+                  <input name="telefono" type="tel" placeholder="Telefono" />
+                  <input id="email" name="email" type="email" placeholder="E-Mail"/>
+                  <input id="confEmail" name="confirmacion" type="email" placeholder="confirmar E-Mail"/>
+                  
+                  <div className="form-button-container">
+                    <button type="submit" className="form-button">Generar orden de compra</button>
+                    <button type="reset"className="form-button cart-reset-btn" >Reiniciar datos</button>
+                  
+                  </div>
+                </form>
             </div>
+          </div>
         </div>
       )}
     </div>

@@ -49,8 +49,15 @@
 .itemDetail-button:hover{
     box-shadow: 0px 0px 10px #96209b;
     transform: translate(0,-2px);
+    text-shadow: 0px 0px 8px #97209bcc;
 }
-
+.finish-buy-button{
+    background-color: #96209b;
+    color: #f3e7a4;
+}
+.finish-buy-button:hover{
+    text-shadow: 0px 0px 5px #f3e7a4;
+}
 .button-anchor{
     text-decoration: none;
 }

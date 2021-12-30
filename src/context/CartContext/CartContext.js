@@ -10,7 +10,6 @@ function CartContextProvider({ children }) {
   //Hook de Context
   const [cartList, setCartList] = useState([]);
   const [cartEmpty, setCartEmpty] = useState(true);
- 
 
   //funciones del carrito  === === ===
   //contador del carrito con su retorno
@@ -23,23 +22,19 @@ function CartContextProvider({ children }) {
   };
   //añade productos al carrito
   const addProduct = (prod) => {
-    //si el carrito tiene elementos
-    if (cartList.length > 0) {
-      cartList.forEach((element) => {
-        // si esta duplicado No lo permite ingresar
-        if (element.producto.id.includes(prod.producto.id)) {
-          setCartList([...cartList]);
-          setCartEmpty(false);
-        } else {
-          setCartList([...cartList, prod]);
-          setCartEmpty(false);
-        }
-      });
+    const index = cartList.findIndex((i) => i.producto.id === prod.producto.id);
+    if (index > -1) {
+      const cantidadAnterior = cartList[index].cantidad;
+      cartList.splice(index, 1);
+      prod.cantidad += cantidadAnterior;
+      setCartList([...cartList, prod]);
+      setCartEmpty(false);
     } else {
       setCartList([...cartList, prod]);
       setCartEmpty(false);
     }
   };
+
   //elimina individualmente los productos del cart
   const removeProduct = (prodId) => {
     const filteredCart = cartList.filter(
@@ -55,13 +50,13 @@ function CartContextProvider({ children }) {
     setCartList([]);
     setCartEmpty(true);
   };
-  const totalPrice=()=>{
-    let total = 0
-    cartList.forEach( item =>{
-      total+=item.producto.price*item.cantidad
-    })
-    return total
-  }
+  const totalPrice = () => {
+    let total = 0;
+    cartList.forEach((item) => {
+      total += item.producto.price * item.cantidad;
+    });
+    return total;
+  };
   // === === ===
   return (
     <CartContext.Provider
@@ -72,7 +67,7 @@ function CartContextProvider({ children }) {
         removeProduct,
         contarElementosDelCart,
         cartEmpty,
-        totalPrice
+        totalPrice,
       }}
     >
       {children}

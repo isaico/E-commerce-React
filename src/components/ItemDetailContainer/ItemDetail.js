@@ -37,7 +37,7 @@ export const ItemDetail = ({ item }) => {
          < >
            <h4 className="itemDetails-left-sign">Agregado al carrito: " {item.title}", con un valor de : {`$${item.price*count}`}</h4>
             <Link to="/carrito" className="button-anchor" >
-              <h4 className="itemDetail-button" >Terminar Compra</h4>
+              <h4 className="itemDetail-button finish-buy-button" >Terminar Compra</h4>
               
             </Link>
             <Link to="/" className="button-anchor">
