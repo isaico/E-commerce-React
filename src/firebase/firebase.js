@@ -1,10 +1,8 @@
-// Import the functions you need from the SDKs you need
+
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 
 const app=firebase.initializeApp ({
   apiKey: "AIzaSyCK9phuOlBu18vRxIH16HF-SGbJZWnlOmE",
@@ -16,9 +14,7 @@ const app=firebase.initializeApp ({
   measurementId: "G-KY5GKHGK3G"
 });
 
-// Initialize Firebase
-// const fb = firebase.initializeApp(firebaseConfig)
-// export const dataBase = fb.firestore()
+
 export  function getFirebase(){
   return app;
 }

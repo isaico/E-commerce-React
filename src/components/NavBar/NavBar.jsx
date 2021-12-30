@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import  Anchor  from "./Anchor" puede servir para poner links en el futuro
 import { Brand } from "./Brand"
 import { ActivateCartContext } from "../../context/CartContext/CartContext"
 import { CartWidget } from "./CartWidget"
@@ -11,8 +10,6 @@ const NavBar = () => {
 
     //uso del Context del carrito
     const { contarElementosDelCart } = ActivateCartContext()
-    
-    
     let valorDelContador =contarElementosDelCart()
     
     return (
@@ -29,12 +26,11 @@ const NavBar = () => {
                         
                     </Link>
                     <Link to="/categoria/vegetarianas" className="navBar__link"> 
-                        {/* <Anchor link="#" name="vegetarianas"/> */}
+                        
                         <h3>Vegetarianas</h3>
                     </Link>
                 </div>
-                {/* <Anchor link="#" name="About"/>
-                <Anchor link="#" name="Contact"/> */}
+               
             </div>
             <div  className="navBar__cart-container">
                 { valorDelContador ?  
@@ -51,8 +47,7 @@ const NavBar = () => {
                         <span className="navBar__cart-number">{valorDelContador}</span>
                     </div>
                 </Link>
-                }
-                    
+                }    
             </div>
         </nav>
     )
