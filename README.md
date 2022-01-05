@@ -29,9 +29,14 @@ node app
 Es un sitio familiar de produccion de comidas vegetarianas/veganas 
 
 ## Informacion Personal
+
 Si estas interesado o te gusto el sitio, puedo ayudarte a crear el tuyo!
 Contactame, y nos ponemos al dia:
-- [https://www.linkedin.com/in/isaias-garcia-187061209/] - Linkedin
-- [wa.link/slh588] - What´s app
+
+-Linkedin - [https://www.linkedin.com/in/isaias-garcia-187061209/]
+-CV personal - [https://www.dropbox.com/s/pel410igvbugwiy/Isaias-Garcia%28CV-Developer%29.pdf?dl=0]
+-Instagram - [[https://www.instagram.com/isaico_developer]
+-Telefono personal - [+54 9 223-155-341995]
+
 
 
